@@ -40,7 +40,7 @@ public class Alphabet {
 	
 	/**
 	 * Returns true if this alphabet contains the specified symbol.
-	 * @param c ---
+	 * @param c a symbol that we want to check if it belongs to the set or not 
 	 * @return true if c belong to this alphabet
 	 * **/
 	public boolean belongTo(Character c) {
@@ -55,3 +55,4 @@ public class Alphabet {
 	
 	
 }
+	
