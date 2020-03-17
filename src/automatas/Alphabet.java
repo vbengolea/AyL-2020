@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * This class implements the
+ * This class implements the set of symbols of an automaton
  * 
  * 
  * **/
