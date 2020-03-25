@@ -1,9 +1,10 @@
 package automatas;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
-public class StateSet {
+public class StateSet implements Iterable<State>{
 	
 	private Set<State> states;
 	
@@ -59,14 +60,14 @@ public class StateSet {
 		return null;
 	}
 	
-	//@Override
-	//public String toString() {
-	//	return states.toString();
-	//}
-	
 	public int size() {
 		return states.size();
 	}
 	
+	
+	@Override
+	  public Iterator<State> iterator() {
+	        return states.iterator();
+	  }
 
 }
