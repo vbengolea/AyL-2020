@@ -3,6 +3,7 @@ package automatas;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import utils.Tupla;
 
@@ -84,6 +85,41 @@ public class DFA extends FA {
 		assert other.repOk();
 		// TODO
 		return null;		
+	}
+	
+	/**
+	 * Returns the representation of the given DFA as a string in the DOT language
+	 * later used to draw the DFA
+	 * @returns a string representing the DFA in DOT language
+	 * */	
+	public String toDot() {
+		assert repOk();
+		
+		//Initial State is added
+		String dot = "digraph {\n";
+		dot += "inic[shape=point];\n";
+		dot += "inic->" + this.initialState().getName() + ";\n";
+		
+		//Transitions are added
+		for (Entry<State, HashMap<Character, StateSet>> entry : delta.entrySet()) {
+			State from = entry.getKey();
+			HashMap<Character, StateSet> transitions = entry.getValue();
+			
+			for(Entry<Character, StateSet> eTrans : transitions.entrySet()) {
+				Character with = eTrans.getKey();
+				StateSet toStates = eTrans.getValue();
+				
+				for(State s : toStates){
+		        	dot += from.getName() + "->" + s.getName() + " [label=\"" + with + "\"];\n";
+		        }
+			}
+		}
+		
+		// Final States are added
+		for(State s : this.finalStates()){
+			dot += s.getName() + "[shape=doublecircle];\n";
+		}
+		return dot + "}";
 	}
 	
 }
