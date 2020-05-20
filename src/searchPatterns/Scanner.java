@@ -96,6 +96,28 @@ public class Scanner {
 	}
 	
 	
+	
+	
+	/*prints (line by line) the file associated with 
+	 * the scanner in hexadecimal format
+	 * Use it in case you want to take a look at the contents 
+	 * of the file in hexadecimal format*/
+	public void printFileToHex(){
+		String line =null;
+		try {
+			while ((line=breader.readLine())!=null) {
+					line = toHex(line);
+					System.out.println(line);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	/****private methods***/
 	
 	private static String toHex(String arg) {
