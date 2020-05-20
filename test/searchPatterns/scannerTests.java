@@ -157,5 +157,15 @@ public class scannerTests {
 		assertTrue(status == STATUS.SUSPICIOUS && result !=null);
 
 	}
+	
+	@Test
+	public void test9() throws IOException, AutomatonException {
+		ArrayList<DFA> dfalist = new ArrayList<DFA>();
+		PatternList list = new PatternList(dfalist);
+		Scanner scanner = new Scanner("test/prueba.o", list);
+		scanner.printFileToHex();
+	}
+	
+	
 }
 
